@@ -27,10 +27,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         
         val shimmerText = findViewById<ShimmerTextView>(R.id.shimmerText)
+        val shimmerTextEnd = findViewById<ShimmerTextView>(R.id.shimmerTextEnd)
+        
         shimmerText.setTraceColor(android.R.color.darker_gray) // Same as default
         shimmerText.setShimmerColor(android.R.color.white) // Same as default
-        shimmerText.startShimmer()
-
+        
+        findViewById<CheckBox>(R.id.checkbox).setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                shimmerText.startShimmer()
+                shimmerTextEnd.startShimmer(800)
+            } else {
+                shimmerText.stopShimmer()
+                shimmerTextEnd.stopShimmer()
+            }
+        }
     }
 
 }
