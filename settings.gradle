@@ -1,0 +1,3 @@
+include ':shimmertextview'
+include ':app'
+rootProject.name = "ShimmerTextView"
